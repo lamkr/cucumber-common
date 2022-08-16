@@ -2,19 +2,19 @@ import 'package:gherkin/language.dart';
 
 abstract class ITokenMatcher
 {
-  bool match_EOF(Token token);
-  bool match_Empty(Token token);
-  bool match_Comment(Token token);
-  bool match_TagLine(Token token);
-  bool match_FeatureLine(Token token);
-  bool match_RuleLine(Token token);
-  bool match_BackgroundLine(Token token);
-  bool match_ScenarioLine(Token token);
-  bool match_ExamplesLine(Token token);
-  bool match_StepLine(Token token);
-  bool match_DocStringSeparator(Token token);
-  bool match_TableRow(Token token);
-  bool match_Language(Token token);
-  bool match_Other(Token token);
+  bool matchEof(Token token);
+  bool matchEmpty(Token token);
+  bool matchComment(Token token);
+  bool matchTagLine(Token token);
+  bool matchFeatureLine(Token token);
+  bool matchRuleLine(Token token);
+  bool matchBackgroundLine(Token token);
+  bool matchScenarioLine(Token token);
+  bool matchExamplesLine(Token token);
+  bool matchStepLine(Token token);
+  bool matchDocStringSeparator(Token token);
+  bool matchTableRow(Token token);
+  bool matchLanguage(Token token);
+  bool matchOther(Token token);
   void reset();
 }

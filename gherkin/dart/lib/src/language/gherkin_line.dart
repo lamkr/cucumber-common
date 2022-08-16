@@ -25,7 +25,7 @@ class GherkinLine implements IGherkinLine
     : _trimmedLineText = _lineText.trimLeft()
     , _isEof = false;
 
-  GherkinLine.Eof()
+  GherkinLine.eof()
       : _lineText = Strings.empty
       , _lineNumber = Int.min
       , _trimmedLineText = Strings.empty

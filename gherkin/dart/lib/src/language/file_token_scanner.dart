@@ -29,7 +29,7 @@ class FileTokenScanner implements ITokenScanner
     var line = _access.readLineSync();
     var location = Location(++lineNumber, 0);
     return line == null
-        ? Token(GherkinLine.Eof(), location)
+        ? Token(GherkinLine.eof(), location)
         : Token(GherkinLine(line, lineNumber), location);
   }
 }

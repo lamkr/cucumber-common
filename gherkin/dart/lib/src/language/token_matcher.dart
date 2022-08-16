@@ -38,7 +38,7 @@ class TokenMatcher implements ITokenMatcher
   }
 
   @override
-  bool match_EOF(Token token) {
+  bool matchEof(Token token) {
     if (token.isEof) {
       setTokenMatched(token, TokenType.EOF);
       return true;
@@ -47,7 +47,7 @@ class TokenMatcher implements ITokenMatcher
   }
 
   @override
-  bool match_Other(Token token) {
+  bool matchOther(Token token) {
     /// take the entire line, except removing DocString indents
     var text = token.line.getLineText(_indentToRemove);
     setTokenMatched(token, TokenType.Other, text: _unescapeDocString(text), indent: 0);
@@ -55,7 +55,7 @@ class TokenMatcher implements ITokenMatcher
   }
 
   @override
-  bool match_Empty(Token token) {
+  bool matchEmpty(Token token) {
     if (token.line.isEmptyLine) {
       setTokenMatched(token, TokenType.Empty);
       return true;
@@ -64,7 +64,7 @@ class TokenMatcher implements ITokenMatcher
   }
 
   @override
-  bool match_Comment(Token token) {
+  bool matchComment(Token token) {
     if (token.line.startsWith(GherkinLanguageConstants.commentPrefix)) {
       var text = token.line.getLineText(IGherkinLine.entireLine);
       setTokenMatched(token, TokenType.Comment, text: text, indent: 0);
@@ -74,7 +74,7 @@ class TokenMatcher implements ITokenMatcher
   }
 
   @override
-  bool match_Language(Token token) {
+  bool matchLanguage(Token token) {
     var match = _languagePattern.firstMatch(token.line.getLineText(IGherkinLine.entireLine));
     if (match != null) {
       var language = match.group(1) ?? Strings.empty;
@@ -86,7 +86,7 @@ class TokenMatcher implements ITokenMatcher
   }
 
   @override
-  bool match_TagLine(Token token) {
+  bool matchTagLine(Token token) {
     if (token.line.startsWith(GherkinLanguageConstants.tagPrefix)) {
       setTokenMatched(token, TokenType.TagLine, items:token.line.tags);
       return true;
@@ -95,24 +95,24 @@ class TokenMatcher implements ITokenMatcher
   }
 
   @override
-  bool match_FeatureLine(Token token) =>
+  bool matchFeatureLine(Token token) =>
       _matchTitleLine(token, TokenType.FeatureLine, currentDialect.featureKeywords);
 
   @override
-  bool match_RuleLine(Token token) =>
+  bool matchRuleLine(Token token) =>
       _matchTitleLine(token, TokenType.RuleLine, currentDialect.ruleKeywords);
 
   @override
-  bool match_BackgroundLine(Token token) =>
+  bool matchBackgroundLine(Token token) =>
       _matchTitleLine(token, TokenType.BackgroundLine, currentDialect.backgroundKeywords);
 
   @override
-  bool match_ScenarioLine(Token token) =>
+  bool matchScenarioLine(Token token) =>
       _matchTitleLine(token, TokenType.ScenarioLine, currentDialect.scenarioKeywords)
           || _matchTitleLine(token, TokenType.ScenarioLine, currentDialect.scenarioOutlineKeywords);
 
   @override
-  bool match_ExamplesLine(Token token) =>
+  bool matchExamplesLine(Token token) =>
       _matchTitleLine(token, TokenType.ExamplesLine, currentDialect.examplesKeywords);
 
   bool _matchTitleLine(Token token, TokenType tokenType, List<String> keywords) {
@@ -127,15 +127,15 @@ class TokenMatcher implements ITokenMatcher
   }
 
   @override
-  bool match_DocStringSeparator(Token token) =>
+  bool matchDocStringSeparator(Token token) =>
       _activeDocStringSeparator.isEmpty
       // open
-          ? _match_DocStringSeparator(token, GherkinLanguageConstants.docStringSeparator, true)
-          || _match_DocStringSeparator(token, GherkinLanguageConstants.docStringAlternativeSeparator, true)
+          ? _matchDocStringSeparator(token, GherkinLanguageConstants.docStringSeparator, true)
+          || _matchDocStringSeparator(token, GherkinLanguageConstants.docStringAlternativeSeparator, true)
       // close
-          : _match_DocStringSeparator(token, _activeDocStringSeparator, false);
+          : _matchDocStringSeparator(token, _activeDocStringSeparator, false);
 
-  bool _match_DocStringSeparator(Token token, String separator, bool isOpen) {
+  bool _matchDocStringSeparator(Token token, String separator, bool isOpen) {
     if (token.line.startsWith(separator)) {
       var mediaType = Strings.empty;
       if (isOpen) {
@@ -154,7 +154,7 @@ class TokenMatcher implements ITokenMatcher
   }
 
   @override
-  bool match_StepLine(token) {
+  bool matchStepLine(token) {
     var keywords = currentDialect.stepKeywords;
     for (var keyword in keywords) {
       if (token.line.startsWith(keyword)) {
@@ -167,7 +167,7 @@ class TokenMatcher implements ITokenMatcher
   }
 
   @override
-  bool match_TableRow(token) {
+  bool matchTableRow(token) {
     if (token.line.startsWith(GherkinLanguageConstants.tableCellSeparator)) {
       setTokenMatched(token, TokenType.TableRow, items:token.line.tableCells);
       return true;
@@ -189,7 +189,7 @@ class TokenMatcher implements ITokenMatcher
 
   String _unescapeDocString(String text) {
     if (GherkinLanguageConstants.docStringSeparator == _activeDocStringSeparator) {
-      return text.replaceFirst('\\\"\\\"\\\"', GherkinLanguageConstants.docStringSeparator);
+      return text.replaceFirst('\\"\\"\\"', GherkinLanguageConstants.docStringSeparator);
     }
     if (GherkinLanguageConstants.docStringAlternativeSeparator == _activeDocStringSeparator) {
       return text.replaceFirst('\\`\\`\\`', GherkinLanguageConstants.docStringAlternativeSeparator);

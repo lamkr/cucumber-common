@@ -246,7 +246,7 @@ class PickleCompiler
       final valueCell = valueCells.elementAt(col++);
       final header = variableCell.value;
       final value = valueCell.value;
-      name = name.replaceAll('<' + header + '>', value);
+      name = name.replaceAll('<$header>', value);
     }
     return name;
   }

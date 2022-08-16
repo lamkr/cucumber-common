@@ -3,9 +3,9 @@ import 'dart:io';
 
 extension RandomAccessFileExtension on RandomAccessFile
 {
-  static const LF = 10;
-  static const CR = 13;
-  static const EOF = -1;
+  static const lf = 10;
+  static const cr = 13;
+  static const eof = -1;
 
   /// Synchronously reads a single line from the file. If end-of-file
   /// has been reached then `null` string is returned.
@@ -15,17 +15,17 @@ extension RandomAccessFileExtension on RandomAccessFile
   String? readLineSync({Encoding encoding=utf8}) {
     var line = <int>[];
     int chr;
-    if( (chr = readByteSync()) == EOF) {
+    if( (chr = readByteSync()) == eof) {
       return null;
     }
     do {
-      if( chr == LF ) {
+      if( chr == lf ) {
         break;
       }
-      if(chr != CR) {
+      if(chr != cr) {
         line.add(chr);
       }
-    } while((chr = readByteSync()) != EOF);
+    } while((chr = readByteSync()) != eof);
     return encoding.decode(line);
   }
 

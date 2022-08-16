@@ -17,6 +17,6 @@ class StringTokenScanner implements ITokenScanner
     if( _linesIterator.moveNext() ) {
       return Token(GherkinLine(_linesIterator.current, lineNumber), location);
     }
-    return Token(GherkinLine.Eof(), location);
+    return Token(GherkinLine.eof(), location);
   }
 }

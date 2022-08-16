@@ -14,7 +14,7 @@ void main()
     final filepath = '$currDir/$assetDir/text-with-only-cr.txt';
     final textFile = File(filepath).openSync(mode: FileMode.read);
     var buffer = StringBuffer();
-    var line;
+    String? line;
     var lineCount=0;
 
     while( (line = textFile.readLineSync()) != null ) {
@@ -34,7 +34,7 @@ void main()
     final filepath = '$currDir/$assetDir/text-with-only-lf.txt';
     final textFile = File(filepath).openSync(mode: FileMode.read);
     var buffer = StringBuffer();
-    var line;
+    String? line;
     var lineCount=0;
 
     while( (line = textFile.readLineSync()) != null ) {
@@ -54,7 +54,7 @@ void main()
     final filepath = '$currDir/$assetDir/text-with-cr-and-lf.txt';
     final textFile = File(filepath).openSync(mode: FileMode.read);
     var buffer = StringBuffer();
-    var line;
+    String? line;
     var lineCount=0;
 
     while( (line = textFile.readLineSync()) != null ) {
@@ -75,7 +75,7 @@ void main()
     final filepath = '$currDir/$assetDir/text-with-multiples-cr-before-lf.txt';
     final textFile = File(filepath).openSync(mode: FileMode.read);
     var buffer = StringBuffer();
-    var line;
+    String? line;
     var lineCount=0;
 
     while( (line = textFile.readLineSync()) != null ) {
@@ -95,7 +95,7 @@ void main()
     final filepath = '$currDir/$assetDir/text-without-cr-lf-last-line.txt';
     final textFile = File(filepath).openSync(mode: FileMode.read);
     var buffer = StringBuffer();
-    var line;
+    String? line;
     var lineCount=0;
 
     while( (line = textFile.readLineSync()) != null ) {
