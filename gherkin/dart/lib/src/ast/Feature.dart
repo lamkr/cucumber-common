@@ -3,12 +3,6 @@ import 'package:gherkin/core.dart';
 import 'package:gherkin/extensions.dart';
 import 'package:gherkin/language.dart';
 
-import 'IHasChildren.dart';
-import 'IHasDescription.dart';
-import 'IHasLocation.dart';
-import 'IHasTags.dart';
-import 'Tag.dart';
-
 class Feature
     implements IHasLocation, IHasDescription, IHasTags
     , IHasChildren<FeatureChild>
