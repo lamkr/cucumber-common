@@ -45,7 +45,7 @@ class Gherkin
   }
 
   static Envelope makeSourceEnvelope(String data, String uri) {
-    final source = Source(uri, data, MediaType.TEXT_X_CUCUMBER_GHERKIN_PLAIN);
+    final source = Source(uri, data, MediaType.textXCucumberGherkinPlain);
     var envelope = Envelope();
     envelope.source = source;
     return envelope;

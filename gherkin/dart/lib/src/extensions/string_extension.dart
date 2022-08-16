@@ -2,7 +2,7 @@ class Strings {
   static const empty = '';
 }
 
-extension StringExtensions on String
+extension StringExtension on String
 {
   /// Indicates whether a specified string is `empty` or consists only
   /// of `white-space` characters.
@@ -88,4 +88,8 @@ extension StringExtensions on String
       throw IndexError(beginIndex, endIndex);
     }
   }*/
+
+  String capitalize() {
+    return '${this[0].toUpperCase()}${substring(1)}';
+  }
 }

@@ -207,7 +207,7 @@ class Parser<T extends INullSafetyObject> {
   }
 
   int _matchToken(int state, Token token, ParserContext context) {
-    var newState;
+    int newState;
     switch (state) {
       case 0:
         newState = matchTokenAt_0(token, context);

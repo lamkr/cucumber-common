@@ -1,16 +1,16 @@
 enum MediaType
 {
-  TEXT_X_CUCUMBER_GHERKIN_PLAIN,
-  TEXT_X_CUCUMBER_GHERKIN_MARKDOWN
+  textXCucumberGherkinPlain,
+  textXCucumberGherkinMarkdown
 }
 
 extension MediaTypeExtension on MediaType
 {
   String get name {
     switch(this) {
-      case MediaType.TEXT_X_CUCUMBER_GHERKIN_PLAIN:
+      case MediaType.textXCucumberGherkinPlain:
         return 'text/x.cucumber.gherkin+plain';
-      case MediaType.TEXT_X_CUCUMBER_GHERKIN_MARKDOWN:
+      case MediaType.textXCucumberGherkinMarkdown:
         return 'text/x.cucumber.gherkin+markdown';
       default:
         throw ArgumentError('Invalid MediaType');

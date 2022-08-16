@@ -65,7 +65,7 @@ class _InvalidSource
 {
   const _InvalidSource()
       : super(Strings.empty, Strings.empty
-        , MediaType.TEXT_X_CUCUMBER_GHERKIN_PLAIN);
+        , MediaType.textXCucumberGherkinPlain);
 
   @override
   bool get isEmpty => true;
