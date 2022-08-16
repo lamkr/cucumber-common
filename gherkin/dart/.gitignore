@@ -1,7 +1,7 @@
 # Intellij Idea files
 .idea/
 
-# Files and directories created by pub
+# Files and directories created by pub.
 .dart_tool/
 .packages
 
@@ -9,7 +9,7 @@
 # https://dart.dev/guides/libraries/private-files#pubspeclock
 pubspec.lock
 
-# Conventional directory for build outputs
+# Conventional directory for build output.
 build/
 
 # Directory created by dartdoc

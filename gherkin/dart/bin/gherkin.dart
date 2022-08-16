@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:gherkin/Gherkin.dart';
+import 'package:gherkin/gherkin.dart';
 import 'package:gherkin/exceptions.dart';
 import 'package:gherkin/language.dart';
 import 'package:gherkin/messages.dart';

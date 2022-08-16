@@ -1,5 +1,5 @@
 /*import 'package:uuid/uuid.dart';
-import 'INullSafetyObject.dart';
+import 'null_safety_object.dart';
 
 class uuid
     implements INullSafetyObject

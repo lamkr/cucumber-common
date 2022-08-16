@@ -1,3 +1,3 @@
 library gherkin.collections;
 
-export 'src/collections/Stack.dart';
+export 'src/collections/stack.dart';

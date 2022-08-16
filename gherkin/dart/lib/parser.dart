@@ -1,8 +1,8 @@
 library gherkin.parser;
 
-export 'src/parser/IBuilder.dart';
-export 'src/parser/ITokenMatcher.dart';
-export 'src/parser/ITokenScanner.dart';
-export 'src/parser/Parser.dart';
-export 'src/parser/ParserContext.dart';
-export 'src/parser/RuleType.dart';
+export 'src/parser/ibuilder.dart';
+export 'src/parser/itoken_matcher.dart';
+export 'src/parser/itoken_scanner.dart';
+export 'src/parser/parser.dart';
+export 'src/parser/parser_context.dart';
+export 'src/parser/rule_type.dart';

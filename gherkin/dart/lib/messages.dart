@@ -1,10 +1,10 @@
 library gherkin.messages;
 
-export 'src/messages/MessageWriter.dart';
-export 'src/messages/MessageToNdjsonWriter.dart';
-export 'src/messages/types/Envelope.dart';
-export 'src/messages/types/Location.dart';
-export 'src/messages/types/MediaType.dart';
-export 'src/messages/types/ParseError.dart';
-export 'src/messages/types/Source.dart';
-export 'src/messages/types/SourceReference.dart';
+export 'src/messages/message_writer.dart';
+export 'src/messages/message_to_ndjson_writer.dart';
+export 'src/messages/types/envelope.dart';
+export 'src/messages/types/location.dart';
+export 'src/messages/types/media_type.dart';
+export 'src/messages/types/parse_error.dart';
+export 'src/messages/types/source.dart';
+export 'src/messages/types/source_reference.dart';

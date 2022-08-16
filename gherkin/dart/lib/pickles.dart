@@ -1,11 +1,11 @@
 library gherkin.pickles;
 
-export 'src/pickles/Pickle.dart';
-export 'src/pickles/PickleCompiler.dart';
-export 'src/pickles/PickleDocString.dart';
-export 'src/pickles/PickleStep.dart';
-export 'src/pickles/PickleStepArgument.dart';
-export 'src/pickles/PickleTable.dart';
-export 'src/pickles/PickleTableCell.dart';
-export 'src/pickles/PickleTableRow.dart';
-export 'src/pickles/PickleTag.dart';
+export 'src/pickles/pickle.dart';
+export 'src/pickles/pickle_compiler.dart';
+export 'src/pickles/pickle_doc_string.dart';
+export 'src/pickles/pickle_step.dart';
+export 'src/pickles/pickle_step_argument.dart';
+export 'src/pickles/pickle_table.dart';
+export 'src/pickles/pickle_table_cell.dart';
+export 'src/pickles/pickle_table_row.dart';
+export 'src/pickles/pickle_tag.dart';
