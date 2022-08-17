@@ -1,5 +1,6 @@
 import 'package:gherkin/core.dart';
 import 'package:gherkin/extensions.dart';
+import 'package:gherkin/src/language/step_keyword_type.dart';
 
 import 'gherkin_language_keywords.dart';
 
@@ -39,6 +40,9 @@ abstract class IGherkinDialect implements INullSafetyObject
 
   List<String> get butStepKeywords;
 
+  Map<String, StepKeywordType> get stepKeywordTypes;
+
+  StepKeywordType stepKeywordType(String keyword);
 }
 
 /// Convenience implementation of an invalid [IGherkinDialect] instance.
@@ -94,6 +98,12 @@ class _EmptyGherkinDialect
 
   @override
   List<String> get whenStepKeywords => [];
+
+  @override
+  Map<String, StepKeywordType> get stepKeywordTypes => {};
+
+  @override
+  StepKeywordType stepKeywordType(String keyword) => StepKeywordType.unspecified;
 
   @override
   bool get isEmpty => true;

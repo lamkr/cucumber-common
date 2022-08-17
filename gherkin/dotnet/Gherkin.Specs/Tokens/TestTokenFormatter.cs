@@ -30,7 +30,11 @@ namespace Gherkin.Specs.Tokens
                     break;
             }
 
-            var matchedItemsText = token.MatchedItems == null ? "" : string.Join(",", token.MatchedItems.Select(i => i.Column + ":" + i.Text));
+            var matchedItemsText = token.MatchedItems == null 
+                ? "" 
+                : string
+                    .Join(",", token.MatchedItems
+                    .Select(i => i.Column + ":" + i.Text));
 
             return $"({token.Location.Line}:{token.Location.Column}){token.MatchedType}:{stepTypeText}{token.MatchedKeyword}/{token.MatchedText}/{matchedItemsText}";
         }

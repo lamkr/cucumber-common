@@ -13,12 +13,14 @@ class Step implements IHasLocation, INullSafetyObject
 
   final String keyword;
 
+  final StepKeywordType keywordType;
+
   final String text;
 
   final StepArgument argument;
 
-  const Step(this._location, this.keyword, this.text, this.argument,
-      {this.id=Strings.empty} );
+  const Step(this._location, this.keyword, this.keywordType, this.text,
+      this.argument, {this.id=Strings.empty} );
 
   @override
   Location get location => _location;
@@ -49,7 +51,8 @@ class Step implements IHasLocation, INullSafetyObject
 class _InvalidStep extends Step
 {
   const _InvalidStep()
-    : super(Location.empty, Strings.empty, Strings.empty, StepArgument.empty );
+    : super(Location.empty, Strings.empty, StepKeywordType.unspecified,
+        Strings.empty, StepArgument.empty );
 
   @override
   bool get isEmpty => true;

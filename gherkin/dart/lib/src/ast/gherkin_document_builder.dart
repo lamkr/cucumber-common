@@ -4,6 +4,7 @@ import 'package:gherkin/extensions.dart';
 import 'package:gherkin/parser.dart';
 import 'package:gherkin/collections.dart';
 import 'package:gherkin/language.dart';
+import 'package:meta/meta.dart';
 
 class GherkinDocumentBuilder
     extends AstRulesBuilder
@@ -85,16 +86,23 @@ abstract class AstRulesBuilder
     }
   }
 
+  @protected
+  StepKeywordType stepKeywordType(Token stepLine) =>
+      stepLine
+      .matchedGherkinDialect
+      .stepKeywordType(stepLine.matchedKeyword);
+
   Step _createStep(AstNode node) {
     var stepLine = node.getToken(TokenType.StepLine);
     var stepArg = node.singleOrDefault<StepArgument>(RuleType.DataTable
         , StepArgument.empty);
+    var keywordType = stepKeywordType(stepLine);
     if( stepArg.isEmpty ) {
       stepArg = node.singleOrDefault<StepArgument>(RuleType.DocString
           , StepArgument.empty);
     }
-    return Step(_getLocation(stepLine), stepLine.matchedKeyword
-        , stepLine.matchedText, stepArg );
+    return Step(_getLocation(stepLine), stepLine.matchedKeyword,
+        keywordType, stepLine.matchedText, stepArg );
   }
 
   Location _getLocation(Token token, [int column=0])
