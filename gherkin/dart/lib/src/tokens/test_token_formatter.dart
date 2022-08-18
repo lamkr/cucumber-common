@@ -23,7 +23,7 @@ class TestTokenFormatter
         break;
       case TokenType.StepLine:
         var tokenType = token.matchedGherkinDialect.stepKeywordType(token.matchedKeyword);
-        stepTypeText = '(${tokenType.name.capitalize})';
+        stepTypeText = '(${tokenType.name.capitalize()})';
         break;
       default:
         stepTypeText = '';
