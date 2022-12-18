@@ -18,11 +18,11 @@ class FileTokenScanner implements ITokenScanner
 
   final RandomAccessFile _access;
 
+  FileTokenScanner(File file)
+      : _access = file.openSync(mode: FileMode.read);
+
   FileTokenScanner.fromPath(String filepath)
       : _access = File(filepath).openSync(mode: FileMode.read);
-
-  FileTokenScanner.fromFile(File file)
-      : _access = file.openSync(mode: FileMode.read);
 
   @override
   Token read() {

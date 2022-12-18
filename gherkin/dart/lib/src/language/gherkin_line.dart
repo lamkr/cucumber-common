@@ -1,9 +1,11 @@
 import 'package:characters/characters.dart';
 import 'package:gherkin/extensions.dart';
 import 'package:gherkin/exceptions.dart';
-import 'package:gherkin/language.dart';
 
 import 'gherkin_language_constants.dart';
+import 'gherkin_line_span.dart';
+import 'igherkin_line.dart';
+import 'location.dart';
 
 class GherkinLine implements IGherkinLine
 {

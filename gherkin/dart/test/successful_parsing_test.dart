@@ -30,7 +30,7 @@ void main()
 
       var file = File(fileEntity.path);
 
-      var tokenScanner = FileTokenScanner.fromFile(file);
+      var tokenScanner = FileTokenScanner(file);
 
       var parsingResult = parser.parse(tokenScanner, matcher);
 

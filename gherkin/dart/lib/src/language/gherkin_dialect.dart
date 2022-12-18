@@ -1,7 +1,8 @@
-import 'package:gherkin/src/language/step_keyword_type.dart';
+
 
 import 'gherkin_language_keywords.dart';
 import 'igherkin_dialect.dart';
+import 'step_keyword_type.dart';
 
 class GherkinDialect implements IGherkinDialect
 {

@@ -1,8 +1,7 @@
 import 'package:gherkin/core.dart';
 import 'package:gherkin/extensions.dart';
-import 'package:gherkin/src/language/step_keyword_type.dart';
-
 import 'gherkin_language_keywords.dart';
+import 'step_keyword_type.dart';
 
 abstract class IGherkinDialect implements INullSafetyObject
 {
